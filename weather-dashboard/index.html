@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard | Orbitern Internship</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for crisp weather icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1><i class="fa-solid => fa-cloud-sun"></i> Weather Dashboard</h1>
+            <p>Real-time weather insights worldwide</p>
+        </header>
+
+        <!-- Search Bar Component -->
+        <section class="search-section">
+            <form id="search-form" class="search-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input 
+                        type="text" 
+                        id="city-input" 
+                        placeholder="Search city (e.g., London, Sydney, Hyderabad)..." 
+                        autocomplete="off"
+                        required 
+                    />
+                </div>
+                <button type="submit" id="search-btn">Search</button>
+            </form>
+            <!-- Recent Searches List -->
+            <div id="recent-searches" class="recent-searches"></div>
+        </section>
+
+        <!-- Feedback UI: Loading & Error Messages -->
+        <div id="loading-spinner" class="status-card hidden">
+            <div class="spinner"></div>
+            <p>Fetching latest weather data...</p>
+        </div>
+
+        <div id="error-message" class="status-card error-card hidden">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span id="error-text">City not found. Please check spelling.</span>
+        </div>
+
+        <!-- Weather Display Card -->
+        <main id="weather-card" class="weather-card hidden">
+            <div class="card-header">
+                <div>
+                    <h2 id="city-name">City, Country</h2>
+                    <p id="current-date">Monday, 10:00 AM</p>
+                </div>
+                <div class="condition-badge" id="weather-condition">Sunny</div>
+            </div>
+
+            <div class="card-body">
+                <div class="temp-display">
+                    <i id="weather-icon" class="fa-solid fa-sun weather-hero-icon"></i>
+                    <div class="temperature">
+                        <span id="temp-value">--</span><span class="unit">°C</span>
+                    </div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <i class="fa-solid fa-droplet"></i>
+                        <div>
+                            <span class="metric-label">Humidity</span>
+                            <span id="humidity-val" class="metric-value">--%</span>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <i class="fa-solid fa-wind"></i>
+                        <div>
+                            <span class="metric-label">Wind Speed</span>
+                            <span id="wind-val" class="metric-value">-- km/h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
